@@ -9,11 +9,10 @@ services:
       - POSTGRES_PASSWORD=postgres
   web:
     build: .
-    command: python manage.py runserver --noreload 0.0.0.0:8000
+    command: gunicorn -b :8000 payment.wsgi
     volumes:
       - .:/usr/src/app
     ports:
       - "8000:8000"
-      - "3000:3000"
     depends_on:
       - db

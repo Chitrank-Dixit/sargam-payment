@@ -11,7 +11,7 @@ configure metallb for load balancing, specify namespace, metallb,secret and conf
 `docker build -f Dockerfile -t sargam-payment:latest .`
 
 test it out and run 
-`docker run -it -p 5000:5000 sargam-payment:latest`
+`docker run -it -p 8000:8000 sargam-payment:latest`
 
 
 setup kind k8s cluster for local development
@@ -59,3 +59,6 @@ EOF
 # apply deployment and services to k8s cluster
 
 `kubectl apply -f deployment`
+
+# deploy using helm charts
+`helm install sarpayments chart`
